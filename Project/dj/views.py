@@ -85,26 +85,23 @@ class EventFoundersList(APIView):
 
     def post(self, request, id=False):
 
-        try:
-            if id:
-                data = request.data
-                datastr = data['data']
-                datastr = datastr.split(",")
-                for datas in datastr:
-                    cast = int(datas)
-                    if Event.objects.get(id=cast):
-                        serializers = Event.objects.all()
+        if id:
+            data = request.data
+            datastr = data['data']
+            datastr = datastr.split(",")
+            for datas in datastr:
+                cast = int(datas)
+                if Event.objects.get(id=cast):
+                    serializers = Event.objects.all()
 
-                        Event.objects.create(founder=EventFounder.objects.get(id=id),
+                    Event.objects.create(founder=EventFounder.objects.get(id=id),
                                              location=serializers.get(id=cast).location,
                                              start_date=serializers.get(id=cast).start_date,
                                              end_date=serializers.get(id=cast).end_date,
                                              capacity=serializers.get(id=cast).capacity,
                                              access_fee=serializers.get(id=cast).access_fee)
 
-                return Response("mere")
-        except Event.DoesNotExist:
-            messages.error(request, 'Invalid EventFounder id.')
+            return Response("mere")
 
         serializer = EventFounderSerializer(data=request.data)
         if serializer.is_valid():
