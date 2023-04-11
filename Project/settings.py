@@ -1,7 +1,7 @@
 
 
 from pathlib import Path
-
+import os
 from Project import dj
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-1r5&q6z4j^w92sy28m$g@#xy*j21c2v8*7uyzr)a%f2_$5oz55
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -34,8 +34,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'corsheaders'
 ]
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,3 +129,7 @@ GRAPH_MODELS = {
     'all_applications': True,
      'group_models': True,
 }
+
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True

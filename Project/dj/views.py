@@ -94,7 +94,7 @@ class EventFoundersList(APIView):
                 if Event.objects.get(id=cast):
                     serializers = Event.objects.all()
 
-                    Event.objects.create(founder=EventFounder.objects.get(id=id),
+                    Event.objects.create(founder0=EventFounder.objects.get(id=id),
                                              location=serializers.get(id=cast).location,
                                              start_date=serializers.get(id=cast).start_date,
                                              end_date=serializers.get(id=cast).end_date,
