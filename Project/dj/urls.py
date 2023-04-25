@@ -10,14 +10,14 @@ urlpatterns =[
     path('event-founder/', EventFoundersList.as_view()),
     path('event-founder/<int:id>/', EventFoundersList.as_view()),
     path('event-founder/<int:id>/add-event/', EventFoundersList.as_view()),
-
+    path('founder-rating-filter/<int:rating>/', FounderRatingFilter.as_view()),
 
     path('event/', EventsList.as_view()),
     path('event/<int:id>/', EventsList.as_view()),
     path('event-fee-filter/<int:fee>/', EventFeeFilter.as_view()),
 
-    path('event/statistics', Statistics.statistics),
-    path('dj-schedule/statistics', Statistics2.statistics),
+    path('event/filter', Statistics.statistics),
+    path('dj-schedule/filter', Statistics2.statistics),
 
     path('schedule/', DjScheduleList.as_view()),
     path('schedule/<int:id>/', DjScheduleList.as_view()),

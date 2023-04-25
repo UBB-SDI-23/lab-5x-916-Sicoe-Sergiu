@@ -18,19 +18,19 @@ export const DeleteEventFounder = () => {
     const handleDelete = async (event:{ preventDefault: () => void }) =>{
         event.preventDefault();
         await axios.delete(`${BACKEND_API_URL}/event-founder/${founderID}/`);
-        navigate("/event-founders/");
+        navigate("/event-founders/list/");
     }
 
     const handleCancel = async (event:{ preventDefault: () => void }) => {
         event.preventDefault();
-        navigate("/event-founders/");
+        navigate("/event-founders/list/");
     }
 
     return(
         <Container>
             <Card>
                 <CardContent>
-                    <IconButton component={ Link } sx={{ mr:3 }} to={`/event-founder/`}>
+                    <IconButton component={ Link } sx={{ mr:3 }} to={`/event-founders/list/`}>
                         <ArrowBackIcon />
                     </IconButton>{" "}
                     Are you sure you want to delete this? This cannot be undone!

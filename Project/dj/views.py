@@ -15,6 +15,12 @@ class DjRatingFilter(APIView):
         serializer = DjSerializer(djs, many=True)
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
+class FounderRatingFilter(APIView):
+    def get(self, request, rating):
+        founders = EventFounder.objects.filter(rating__gt=rating)
+        serializer = EventFounderSerializer(founders, many=True)
+        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
 class EventFeeFilter(APIView):
     def get(self, request, fee):
         events = Event.objects.filter(access_fee__lt=fee)

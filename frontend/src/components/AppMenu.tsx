@@ -1,7 +1,6 @@
 import {Box, AppBar, Toolbar, IconButton, Typography, Button, Container} from "@mui/material";
 import {Link, useLocation} from "react-router-dom";
-import CarIcon from "@mui/icons-material/CarRental";
-import Car from "@mui/icons-material/CarRentalRounded";
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import {useState} from "react";
 import {Star} from "@mui/icons-material";
 import { AllEventFounders} from "./EventFounders/allEventFounders";
@@ -13,6 +12,9 @@ export const AppMenu = () => {
 
     return (
         <Container>
+            <div style={{alignItems: "center", textAlign: "center"}}>
+                <h1> Welcome to Record Label App  </h1>
+            </div>
             {state === 0 && (
                 <Box sx={{flexGrow: 1}}>
                     <AppBar position="static" sx={{marginBottom: "20px"}}>
@@ -25,74 +27,39 @@ export const AppMenu = () => {
                                 color="inherit"
                                 aria-label="school"
                                 sx={{mr: 2}}>
-                                <CarIcon/>
+                                <AccessibilityNewIcon/>
                             </IconButton>
                             <Typography variant="h6" component="div" sx={{mr: 5}}>
-                                Artist Managers management
+                                Artist Managers management:
                             </Typography>
                             <Button
                                 to="/"
                                 component={Link}
                                 color="inherit"
                                 sx={{mr: 5}}
-                                startIcon={<Car/>}
+                                startIcon={<AccessibilityNewIcon/>}
                                 onClick={() => setState(1)}
                             >
                                 Artist Managers
                             </Button>
                         </Toolbar>
-                        <Toolbar>
-                            <IconButton
-                                component={Link}
-                                to="/"
-                                size="large"
-                                edge="start"
-                                color="inherit"
-                                aria-label="school"
-                                sx={{mr: 2}}>
-                                <Star/>
-                            </IconButton>
-                            <Typography variant="h6" component="div" sx={{mr: 5}}>
-                                Statistics:
-                            </Typography>
-                            <Button
-                                to="/"
-                                component={Link}
-                                color="inherit"
-                                sx={{mr: 5}}
-                                startIcon={<Star/>}
-                                onClick={() => setState(2)}
-                            >
-                                Statistics
-                            </Button>
-                        </Toolbar>
+
                     </AppBar>
                 </Box>
             )}
-            {/*{state === 1 && (*/}
-            {/*    <><Button*/}
-            {/*        to="/"*/}
-            {/*        component={Link}*/}
-            {/*        color="inherit"*/}
-            {/*        sx={{mr: 5}}*/}
-            {/*        startIcon={<Car/>}*/}
-            {/*        onClick={() => setState(0)}*/}
-            {/*    >*/}
-            {/*        Back*/}
-            {/*    </Button><allEventFounders/></>*/}
-            {/*)}*/}
-            {/*{state === 2 && (*/}
-            {/*    <><Button*/}
-            {/*        to="/"*/}
-            {/*        component={Link}*/}
-            {/*        color="inherit"*/}
-            {/*        sx={{mr: 5}}*/}
-            {/*        startIcon={<Car/>}*/}
-            {/*        onClick={() => setState(0)}*/}
-            {/*    >*/}
-            {/*        Back*/}
-            {/*    </Button><Statistic1/></>*/}
-            {/*)}*/}
+
+            {state === 1 && (
+                <><Button
+                    to="/"
+                    component={Link}
+                    color="inherit"
+                    sx={{mr: 5}}
+                    startIcon={<AccessibilityNewIcon/>}
+                    onClick={() => setState(0)}
+                >
+                    Back
+                </Button><AllEventFounders/></>
+            )}
         </Container>
     );
 };

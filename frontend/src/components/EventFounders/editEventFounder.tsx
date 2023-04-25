@@ -27,7 +27,7 @@ export const EditEventFounder = () => {
                     'Content-Type': 'application/json'
                 }
             });
-            navigate("/event-founders/");
+            navigate("/event-founders/list/");
         }catch (error){
             console.log(error);
         }
@@ -37,7 +37,7 @@ export const EditEventFounder = () => {
         <Container>
             <Card>
                 <CardContent>
-                    <IconButton component={Link} sx={{mr: 3}} to={`/event-founders/`}>
+                    <IconButton component={Link} sx={{mr: 3}} to={`/event-founders/list/`}>
                         <ArrowBackIcon/>
                     </IconButton>{" "}
                     <form onSubmit={ editEventFounder }>

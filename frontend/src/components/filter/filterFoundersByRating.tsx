@@ -8,7 +8,7 @@ import {
     TableContainer, TableHead, TableRow,
     TextField,
     Tooltip,
-    Paper
+    Paper, Alert
 } from "@mui/material";
 import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
@@ -20,18 +20,22 @@ import { EventFounders } from "../../models/EventFounders";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
+import {AllEventFounders} from "../EventFounders/allEventFounders";
 
-export const AllEventFounders = () => {
+export const FilterFoundersByRating = () => {
     const [loading, setLoading] = useState(false);
     const [founders, setFounders] = useState<EventFounders[]>([]);
     const [order, setOrder] = useState("asc");
-    let[input, setInput] = useState<number | undefined>()
-    const navigate = useNavigate();
+    // let[input, setInput] = useState<number | undefined>()
+    const { input } = useParams();
 
     useEffect( () => {
         setLoading(true);
-        fetch(`${BACKEND_API_URL}/event-founder/`)
-            .then(async (response) => (await response.json()).data )
+        if (input === undefined)
+            alert("aaa")
+        fetch(`${BACKEND_API_URL}/founder-rating-filter/${input}/`)
+            .then(async (response) => (await response.json()).data)
             .then((data) => {
                 setFounders(data);
                 setLoading(false)
@@ -55,36 +59,17 @@ export const AllEventFounders = () => {
         }
     }
 
-    let handleClick = () => {
-        if (input != undefined){
-            navigate(`/event-founders-filter/${input}/`)
-        }else {
-            alert("Invalid Event Founder rating!")
-        }
-    }
-
     return(
         <Container>
-            <h1> All Event Founders </h1>
-            <div style={{ display: "flex", alignItems: "center", marginLeft: "700px", marginBottom: "-30px" }}>
-            <TextField
-                label="Founder rating..."
-                onChange={(event) => {
-						setInput( parseInt(event.target.value))}}
-                InputProps={{ style: { color: "black" } }}
-                InputLabelProps={{style: {color: 'darkgrey'}}}
-                style={{ marginRight: "16px", color:'whitesmoke' }}
-            />
-            <Button onClick={handleClick} sx={{ mr: 3 }}  variant="contained" style={{color:"whitesmoke"}}>
-                Filter
-            </Button>
-            </div>
+
+            <h1> Event Founders with rating grater than {input} </h1>
             { loading && <CircularProgress/>}
             { !loading && founders.length === 0 && <p> No Founders found </p>}
             { !loading && (
-                <IconButton component={Link} sx={{mr: 3}} to={`/event-founders/add/`}>
-                    <Tooltip title="Add new founder" arrow>
-                        <AddIcon color="primary"/>
+                <IconButton component={Link} sx={{mr: 3}} to={`/event-founders/list/`}>
+
+                    <Tooltip title="Back" arrow>
+                        <ArrowBackIcon color="primary"/>
                     </Tooltip>
                 </IconButton>
             )}

@@ -24,7 +24,7 @@ export const AddEventFounder = () => {
                     'Content-Type': 'application/json'
                 }
             });
-            navigate("/event-founder");
+            navigate("/event-founders/list/");
         }catch (error){
             console.log(error);
         }
