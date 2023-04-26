@@ -18,7 +18,6 @@ export const FilterFoundersByRating = () => {
     const [loading, setLoading] = useState(false);
     const [founders, setFounders] = useState<EventFounders[]>([]);
     const [order, setOrder] = useState("asc");
-    // let[input, setInput] = useState<number | undefined>()
     const { input } = useParams();
 
     useEffect( () => {

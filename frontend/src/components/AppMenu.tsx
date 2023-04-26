@@ -1,5 +1,5 @@
 import {Box, AppBar, Toolbar, IconButton, Typography, Button, Container} from "@mui/material";
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import {useState} from "react";
 import { AllEventFounders} from "./EventFounders/allEventFounders";
