@@ -28,7 +28,7 @@ export const FilterFoundersByRating = () => {
                 setFounders(data);
                 setLoading(false)
             })
-    }, []);
+    }, [input]);
 
     const sorting = () => {
         if (order === "asc") {
