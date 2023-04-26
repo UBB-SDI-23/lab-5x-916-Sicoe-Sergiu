@@ -23,8 +23,6 @@ export const FilterFoundersByRating = () => {
 
     useEffect( () => {
         setLoading(true);
-        if (input === undefined)
-            alert("aaa")
         fetch(`${BACKEND_API_URL}/founder-rating-filter/${input}/`)
             .then(async (response) => (await response.json()).data)
             .then((data) => {

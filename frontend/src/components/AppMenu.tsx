@@ -5,7 +5,6 @@ import {useState} from "react";
 import { AllEventFounders} from "./EventFounders/allEventFounders";
 
 export const AppMenu = () => {
-    const location = useLocation();
     const [state, setState] = useState(0);
 
     return (

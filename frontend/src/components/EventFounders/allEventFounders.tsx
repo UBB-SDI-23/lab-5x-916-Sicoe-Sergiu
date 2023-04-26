@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BACKEND_API_URL } from "../../constants";
 import { EventFounders } from "../../models/EventFounders";
 import AddIcon from "@mui/icons-material/Add";
