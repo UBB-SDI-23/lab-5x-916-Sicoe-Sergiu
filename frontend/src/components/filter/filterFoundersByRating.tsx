@@ -1,27 +1,18 @@
 import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
     CircularProgress,
     IconButton, Table, TableBody, TableCell,
     TableContainer, TableHead, TableRow,
-    TextField,
     Tooltip,
-    Paper, Alert
+    Paper
 } from "@mui/material";
 import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { BACKEND_API_URL } from "../../constants";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import axios from "axios";
 import { EventFounders } from "../../models/EventFounders";
-import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
-import {AllEventFounders} from "../EventFounders/allEventFounders";
 
 export const FilterFoundersByRating = () => {
     const [loading, setLoading] = useState(false);

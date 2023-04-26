@@ -2,12 +2,10 @@ import {Box, AppBar, Toolbar, IconButton, Typography, Button, Container} from "@
 import {Link, useLocation} from "react-router-dom";
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import {useState} from "react";
-import {Star} from "@mui/icons-material";
 import { AllEventFounders} from "./EventFounders/allEventFounders";
 
 export const AppMenu = () => {
     const location = useLocation();
-    const path = location.pathname;
     const [state, setState] = useState(0);
 
     return (

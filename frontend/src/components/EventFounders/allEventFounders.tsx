@@ -1,8 +1,5 @@
 import {
     Button,
-    Card,
-    CardActions,
-    CardContent,
     CircularProgress,
     IconButton, Table, TableBody, TableCell,
     TableContainer, TableHead, TableRow,
@@ -14,8 +11,6 @@ import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { BACKEND_API_URL } from "../../constants";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import axios from "axios";
 import { EventFounders } from "../../models/EventFounders";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
@@ -56,7 +51,7 @@ export const AllEventFounders = () => {
     }
 
     let handleClick = () => {
-        if (input != undefined){
+        if (input !== undefined){
             navigate(`/event-founders-filter/${input}/`)
         }else {
             alert("Invalid Event Founder rating!")
