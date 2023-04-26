@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BACKEND_API_URL } from "../../constants";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { EventFounders } from "../../models/EventFounders";
