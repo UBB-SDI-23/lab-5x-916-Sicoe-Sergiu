@@ -7,7 +7,7 @@ class EventFounder(models.Model):
     name = models.CharField(max_length=50)
     rating = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0)])
     email = models.EmailField()
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=15)
 
     def __str__(self):
         return self.name
